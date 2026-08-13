@@ -3,142 +3,359 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f5f5f7">
+<meta name="theme-color" content="#f5f6f7">
+<meta name="color-scheme" content="light">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
+<meta name="description" content="A flexible 8-week body recomposition training companion.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<title>Recomp 8 | Training Companion</title>
-<meta name="description" content="Offline-ready 8-week body recomposition training companion.">
+<title>Forge | Training Companion</title>
 <style>
-:root{--bg:#f5f5f7;--card:rgba(255,255,255,.88);--text:#1d1d1f;--sub:#6e6e73;--line:#d2d2d7;--blue:#0071e3;--blue2:#2997ff;--green:#34c759;--orange:#ff9f0a;--red:#ff3b30;--purple:#af52de;--shadow:0 10px 35px rgba(0,0,0,.07);--radius:24px}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0,#e8f3ff 0,transparent 28%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:100px}button,input,select,textarea{font:inherit;font-size:16px}button{touch-action:manipulation}button{cursor:pointer}.wrap{width:min(980px,100%);margin:auto;padding:0 18px}.hero{padding:calc(30px + env(safe-area-inset-top)) 0 18px}.eyebrow{font-weight:700;color:var(--blue);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}.hero h1{font-size:clamp(2.25rem,8vw,4.5rem);line-height:.96;letter-spacing:-.055em;margin:10px 0 14px}.hero p{font-size:1.08rem;color:var(--sub);max-width:680px;margin:0}.glass{background:var(--card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow);border-radius:var(--radius)}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:16px;margin:18px 0}.metric{padding:10px}.metric b{display:block;font-size:1.35rem;letter-spacing:-.03em}.metric span{color:var(--sub);font-size:.8rem}.section{padding-top:28px;scroll-margin-top:20px}.section-title{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:13px}.section-title h2{font-size:1.75rem;letter-spacing:-.04em;margin:0}.section-title p{color:var(--sub);margin:0;font-size:.9rem}.panel{padding:20px;margin-bottom:14px}.week-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.week-btn{border:0;border-radius:16px;background:#ececf0;padding:12px 4px;color:var(--text);font-weight:700}.week-btn small{display:block;font-weight:500;color:var(--sub);font-size:.65rem;margin-top:2px}.week-btn.active{background:var(--text);color:white}.week-btn.active small{color:#d1d1d6}.mode-banner{margin-top:14px;padding:16px;border-radius:18px;background:linear-gradient(135deg,#0a84ff,#5e5ce6);color:#fff}.mode-banner.easy{background:linear-gradient(135deg,#34c759,#30b0c7)}.mode-banner h3{margin:0 0 4px}.mode-banner p{margin:0;opacity:.88;font-size:.9rem}.day-tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}.day-tabs::-webkit-scrollbar{display:none}.day-tab{white-space:nowrap;border:0;border-radius:999px;padding:10px 15px;background:#e9e9ed;font-weight:650;color:var(--sub)}.day-tab.active{background:var(--blue);color:#fff}.workout-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:12px}.workout-head h3{margin:0;font-size:1.35rem}.workout-head p{margin:3px 0 0;color:var(--sub);font-size:.88rem}.progress-ring{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) 0deg,#e5e5ea 0);font-weight:700;font-size:.78rem;position:relative}.progress-ring:after{content:"";position:absolute;inset:6px;background:white;border-radius:50%}.progress-ring span{position:relative;z-index:1}.exercise{border-top:1px solid var(--line);padding:17px 0}.exercise:first-of-type{border-top:0}.ex-top{display:grid;grid-template-columns:34px 1fr auto;gap:11px;align-items:start}.check{appearance:none;width:30px;height:30px;border-radius:50%;border:2px solid #c7c7cc;margin:1px 0 0;background:white}.check:checked{background:var(--green);border-color:var(--green);box-shadow:inset 0 0 0 7px var(--green)}.check:checked:after{content:"✓";display:block;color:white;text-align:center;line-height:26px;font-weight:900}.ex-name{font-weight:750;letter-spacing:-.015em}.ex-note{font-size:.82rem;color:var(--sub);margin-top:2px}.prescription{text-align:right;font-weight:750;color:var(--blue);font-size:.88rem;white-space:nowrap}.log-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0 0 45px}.log-row label{font-size:.68rem;color:var(--sub);font-weight:650}.log-row input{width:100%;display:block;margin-top:4px;border:1px solid #dadae0;background:#f8f8fa;border-radius:11px;padding:9px 8px;color:var(--text);outline:none}.log-row input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,.12)}.actions{display:flex;gap:10px;margin-top:14px}.primary,.secondary,.danger{border:0;border-radius:14px;padding:12px 15px;font-weight:700}.primary{background:var(--blue);color:white}.secondary{background:#e9e9ed;color:var(--text)}.danger{background:#fff0ef;color:var(--red)}.timer{display:flex;justify-content:space-between;align-items:center;gap:16px}.timer-display{font-variant-numeric:tabular-nums;font-size:2.4rem;font-weight:750;letter-spacing:-.04em}.quick{display:flex;gap:7px;flex-wrap:wrap}.quick button{border:0;background:#e9e9ed;border-radius:999px;padding:8px 11px;font-weight:650}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mini h3{margin:0 0 7px;font-size:1.05rem}.mini p,.mini li{color:var(--sub);font-size:.9rem}.mini ul{padding-left:19px;margin:8px 0}.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#eaf4ff;color:var(--blue);font-size:.75rem;font-weight:750;margin:2px}.rules{counter-reset:r;display:grid;gap:9px}.rule{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center}.rule:before{counter-increment:r;content:counter(r);width:30px;height:30px;border-radius:9px;background:var(--text);color:white;display:grid;place-items:center;font-weight:750}.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.field label{display:block;color:var(--sub);font-size:.75rem;font-weight:650;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid #dadae0;background:#f8f8fa;border-radius:12px;padding:11px;outline:none;color:var(--text)}.field textarea{min-height:78px;resize:vertical}.span2{grid-column:span 2}.span4{grid-column:span 4}.status{font-size:.82rem;color:var(--green);min-height:18px;margin-top:8px}.warning{border-left:4px solid var(--orange);background:#fff9eb}.footer{color:var(--sub);font-size:.78rem;text-align:center;padding:36px 20px}.bottom-nav{position:fixed;z-index:20;bottom:calc(10px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:7px;background:rgba(255,255,255,.88);backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.8);box-shadow:0 8px 30px rgba(0,0,0,.14);border-radius:20px}.bottom-nav a{text-decoration:none;color:var(--sub);font-size:.68rem;font-weight:700;padding:8px 12px;border-radius:14px;text-align:center}.bottom-nav a span{display:block;font-size:1.1rem}.bottom-nav a:hover{background:#eee;color:var(--text)}
-@media(max-width:700px){.summary{grid-template-columns:1fr 1fr}.week-grid{grid-template-columns:repeat(4,1fr)}.grid2{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr 1fr}.span4{grid-column:span 2}.section-title{align-items:start;flex-direction:column}.panel{padding:17px}.bottom-nav a{padding:7px 9px}.log-row{margin-left:0}.hero h1{font-size:3rem}}
-@media(prefers-color-scheme:dark){:root{--bg:#000;--card:rgba(27,27,29,.88);--text:#f5f5f7;--sub:#a1a1a6;--line:#38383a;--shadow:none}body{background:radial-gradient(circle at 90% 0,#0a2740 0,transparent 26%),#000}.glass{border-color:#29292b}.week-btn,.day-tab,.secondary,.quick button{background:#2c2c2e}.progress-ring:after{background:#1b1b1d}.check{background:#1c1c1e;border-color:#636366}.log-row input,.field input,.field select,.field textarea{background:#1c1c1e;border-color:#3a3a3c;color:white}.warning{background:#2a2110}.bottom-nav{background:rgba(28,28,30,.9);border-color:#38383a}.danger{background:#321714}.pill{background:#102a44}}
+:root{
+  --bg:#f5f6f7; --card:#ffffff; --text:#1a1c1e; --sub:#52565c; --line:#dfe3e7;
+  --accent:#1D4ED8; --accentDark:#15308f; --accentSoft:#e3ebfd;
+  --green:#146b3d; --greenBg:#e6f7ec; --amber:#7a5209; --amberBg:#fff3dc;
+  --red:#c81e3a; --redBg:#fdecef; --shadow:0 10px 28px rgba(20,30,50,.08); --radius:18px;
+}
+html{color-scheme:light}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:104px}
+button,input,select,textarea{font:inherit;font-size:16px;color:var(--text)}
+button{cursor:pointer;touch-action:manipulation;color:var(--text)}
+.wrap{width:min(980px,100%);margin:auto;padding:0 18px}
+.hero{padding:calc(28px + env(safe-area-inset-top)) 0 16px}
+.eyebrow{font-weight:750;color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.09em}
+.hero h1{font-size:clamp(2.1rem,7vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:9px 0 12px;color:var(--text)}
+.hero p{font-size:1.03rem;color:var(--sub);max-width:640px;margin:0}
+.card{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius)}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:16px;margin:18px 0}
+.metric{padding:8px;text-align:center}
+.metric b{display:block;font-size:1.3rem;letter-spacing:-.03em;color:var(--accent)}
+.metric span{color:var(--sub);font-size:.76rem}
+.section{padding-top:26px;scroll-margin-top:18px}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:12px}
+.section-title h2{font-size:1.6rem;letter-spacing:-.03em;margin:0;color:var(--text)}
+.section-title p{color:var(--sub);margin:0;font-size:.88rem}
+.panel{padding:20px;margin-bottom:14px}
+.badge{display:inline-block;padding:4px 9px;border-radius:6px;font-size:.7rem;font-weight:750;margin-right:6px}
+.badge.essential{background:var(--accentSoft);color:var(--accent)}
+.badge.recommended{background:var(--amberBg);color:var(--amber)}
+.badge.optional{background:#eef0ff;color:#4c53c9}
+.badge.pr{background:var(--greenBg);color:var(--green)}
+
+/* ---------- Phase tracker: ring + workout timeline ---------- */
+.phase-hero{background:linear-gradient(135deg,var(--accent),var(--accentDark));color:#ffffff;padding:22px 20px;border-radius:var(--radius)}
+.phase-hero h3{margin:0;font-size:.85rem;font-weight:750;letter-spacing:.04em;text-transform:uppercase;opacity:.88;color:#ffffff}
+.phase-top{display:flex;align-items:center;gap:18px}
+.phase-ring-wrap{position:relative;width:100px;height:100px;flex:none}
+.phase-ring-wrap svg{width:100px;height:100px;transform:rotate(-90deg)}
+.phase-ring-bg{fill:none;stroke:rgba(255,255,255,.26);stroke-width:9}
+.phase-ring-fg{fill:none;stroke:#ffffff;stroke-width:9;stroke-linecap:round;transition:stroke-dashoffset .4s ease}
+.phase-ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.phase-ring-center b{font-size:1.55rem;font-weight:800;line-height:1;color:#ffffff}
+.phase-ring-center span{font-size:.65rem;color:#ffffff;opacity:.85;margin-top:2px}
+.phase-info{flex:1;min-width:0}
+.phase-info .headline{font-size:1.1rem;font-weight:750;margin:0 0 3px;color:#ffffff}
+.phase-info .sub{margin:0;font-size:.84rem;color:#ffffff;opacity:.92}
+.phase-dots{display:flex;gap:4px;margin-top:16px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.phase-dots::-webkit-scrollbar{display:none}
+.phase-dot{width:9px;height:9px;border-radius:2px;background:rgba(255,255,255,.28);flex:none}
+.phase-dot.filled{background:#ffffff}
+.streak-row{display:flex;gap:10px;margin-top:16px}
+.streak-chip{background:rgba(255,255,255,.16);border-radius:12px;padding:10px 14px;flex:1}
+.streak-chip b{display:block;font-size:1.3rem;color:#ffffff}
+.streak-chip span{font-size:.72rem;color:#ffffff;opacity:.85}
+
+.readiness-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+.readiness-title h3{margin:0;font-size:1.05rem;color:var(--text)}
+.readiness-title span{font-size:.78rem;color:var(--sub)}
+.segmented-group{margin-top:14px}
+.segmented-label{font-size:.78rem;font-weight:700;color:var(--sub);margin-bottom:7px;display:block}
+.segmented{display:flex;gap:6px;flex-wrap:wrap}
+.seg-btn{border:1.5px solid var(--line);background:#ffffff;color:var(--text);border-radius:10px;padding:9px 12px;font-weight:700;font-size:.82rem}
+.seg-btn.active{background:var(--accent);border-color:var(--accent);color:#ffffff}
+.recommend-pill{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;font-weight:750;margin-top:16px;font-size:.9rem}
+.recommend-pill.green{background:var(--greenBg);color:var(--green)}
+.recommend-pill.amber{background:var(--amberBg);color:var(--amber)}
+.recommend-pill.red{background:var(--redBg);color:var(--red)}
+.recommend-pill .dot{width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+
+.mode-tabs{display:flex;gap:8px;margin:10px 0}
+.mode-tab{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:10px 8px;background:#ffffff;font-weight:700;color:var(--sub);font-size:.82rem}
+.mode-tab.active{background:var(--accent);border-color:var(--accent);color:#ffffff}
+.next-workout{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.next-workout h3{margin:0;font-size:1.3rem;color:var(--text)}
+.next-workout p{margin:3px 0 0;color:var(--sub);font-size:.85rem}
+.workout-picker{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;scrollbar-width:none}
+.workout-picker::-webkit-scrollbar{display:none}
+.wk-chip{white-space:nowrap;border:1.5px solid var(--line);border-radius:10px;padding:9px 14px;background:#ffffff;font-weight:700;color:var(--sub);font-size:.85rem}
+.wk-chip.active{background:var(--accent);border-color:var(--accent);color:#ffffff}
+.progress-ring{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) 0deg,#e9ebee 0);font-weight:750;font-size:.75rem;position:relative}
+.progress-ring:after{content:"";position:absolute;inset:6px;background:#ffffff;border-radius:50%}
+.progress-ring span{position:relative;z-index:1;color:var(--accent)}
+.exercise{border-top:1px solid var(--line);padding:16px 0}
+.exercise:first-of-type{border-top:0}
+.ex-top{display:grid;grid-template-columns:32px 1fr auto;gap:10px;align-items:start}
+.check{appearance:none;width:29px;height:29px;border-radius:6px;border:2px solid var(--line);margin:1px 0 0;background:#ffffff}
+.check:checked{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 6px var(--accent)}
+.check:checked:after{content:"✓";display:block;color:#ffffff;text-align:center;line-height:24px;font-weight:900}
+.ex-name{font-weight:750;letter-spacing:-.01em;color:var(--text)}
+.ex-note{font-size:.8rem;color:var(--sub);margin-top:2px}
+.prescription{text-align:right;font-weight:750;color:var(--accent);font-size:.86rem;white-space:nowrap}
+.alt-row{margin:9px 0 0 42px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.alt-row select{border:1px solid var(--line);background:#ffffff;border-radius:9px;padding:8px 9px;color:var(--text);outline:none;font-size:.85rem}
+.log-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0 0 42px}
+.log-row label{font-size:.66rem;color:var(--sub);font-weight:650}
+.log-row input{width:100%;display:block;margin-top:4px;border:1px solid var(--line);background:#ffffff;border-radius:9px;padding:9px 8px;color:var(--text);outline:none}
+.log-row input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,78,216,.14)}
+.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.primary,.secondary,.danger{border:0;border-radius:12px;padding:12px 15px;font-weight:750}
+.primary{background:var(--accent);color:#ffffff}
+.secondary{background:#eef0f2;color:var(--text)}
+.danger{background:var(--redBg);color:var(--red)}
+.timer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.timer-display{font-variant-numeric:tabular-nums;font-size:2.3rem;font-weight:750;letter-spacing:-.03em;color:var(--accent)}
+.quick{display:flex;gap:7px;flex-wrap:wrap}
+.quick button{border:1.5px solid var(--line);background:#ffffff;border-radius:10px;padding:8px 11px;font-weight:650;color:var(--text)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini h3{margin:0 0 7px;font-size:1.03rem;color:var(--text)}
+.mini p,.mini li{color:var(--sub);font-size:.88rem}
+.mini ul{padding-left:19px;margin:8px 0}
+.pill{display:inline-block;padding:5px 10px;border-radius:8px;background:var(--accentSoft);color:var(--accent);font-size:.74rem;font-weight:750;margin:2px}
+.pill.active{background:var(--accent);color:#ffffff}
+.rules{counter-reset:r;display:grid;gap:9px}
+.rule{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;color:var(--text)}
+.rule:before{counter-increment:r;content:counter(r);width:28px;height:28px;border-radius:7px;background:var(--accent);color:#ffffff;display:grid;place-items:center;font-weight:750;font-size:.85rem}
+.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.field label{display:block;color:var(--sub);font-size:.74rem;font-weight:650;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#ffffff;border-radius:10px;padding:11px;outline:none;color:var(--text)}
+.field textarea{min-height:74px;resize:vertical}
+.span4{grid-column:span 4}
+.status{font-size:.82rem;color:var(--green);min-height:18px;margin-top:8px}
+.warning{border-left:4px solid var(--amber);background:var(--amberBg)}
+.streak-block{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.streak-box{background:var(--accentSoft);border-radius:12px;padding:12px;text-align:center}
+.streak-box b{display:block;font-size:1.3rem;color:var(--accent)}
+.streak-box span{font-size:.7rem;color:var(--sub)}
+.pr-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.pr-item:first-child{border-top:0}
+.pr-item b{font-size:.9rem}
+.pr-item span{color:var(--sub);font-size:.78rem}
+.footer{color:var(--sub);font-size:.78rem;text-align:center;padding:34px 20px}
+.bottom-nav{position:fixed;z-index:20;bottom:calc(10px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:3px;padding:7px;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border:1px solid var(--line);box-shadow:0 8px 26px rgba(20,30,50,.14);border-radius:16px}
+.bottom-nav a{text-decoration:none;color:var(--sub);font-size:.66rem;font-weight:750;padding:8px 11px;border-radius:11px;text-align:center}
+.bottom-nav a span{display:block;font-size:1.1rem}
+.bottom-nav a:hover{background:var(--accentSoft);color:var(--accent)}
+.filepick{border:1px dashed #b9c4e0;border-radius:12px;padding:12px;text-align:center;color:var(--sub);font-size:.85rem;background:#ffffff}
+@media(max-width:700px){
+  .summary{grid-template-columns:1fr 1fr}
+  .grid2{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr 1fr}
+  .span4{grid-column:span 2}
+  .streak-block{grid-template-columns:1fr 1fr}
+  .section-title{align-items:start;flex-direction:column}
+  .panel{padding:16px}
+  .log-row{margin-left:0}
+  .alt-row{margin-left:0}
+  .hero h1{font-size:2.4rem}
+  .phase-top{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
+
 <header class="hero" id="home">
 <div class="eyebrow">8-week body recomposition</div>
-<h1>Train smart.<br>Look stronger.</h1>
-<p>A simple, machine-focused program for returning to training, cutting fat, rebuilding strength, and developing the shoulders, chest, back and arms.</p>
+<h1>Train hard.<br>Track everything.</h1>
+<p>A flexible, machine-based training companion built for consistent progress — with a phase tracker, personal records, and a streak count that keeps you honest.</p>
 </header>
-<section class="summary glass" aria-label="Profile summary">
-<div class="metric"><b>87 kg</b><span>Starting weight</span></div><div class="metric"><b>~23%</b><span>Estimated body fat</span></div><div class="metric"><b>4×</b><span>Training per week</span></div><div class="metric"><b>8 weeks</b><span>Alternating load</span></div>
+
+<section class="summary card" aria-label="Profile summary">
+<div class="metric"><b>4×</b><span>Training weekly</span></div>
+<div class="metric"><b>Recomp</b><span>Fat loss + strength</span></div>
+<div class="metric"><b>8 weeks</b><span>Flexible phases</span></div>
+<div class="metric"><b id="summaryStreak">0</b><span>Week streak</span></div>
+</section>
+
+<section class="section" id="phase">
+<div class="section-title"><div><h2>Phase tracker</h2><p>Advances automatically as you complete workouts — not by calendar.</p></div></div>
+
+<div class="card phase-hero" id="phaseCard">
+  <h3>Current phase</h3>
+  <div class="phase-top">
+    <div class="phase-ring-wrap">
+      <svg viewBox="0 0 100 100">
+        <circle class="phase-ring-bg" cx="50" cy="50" r="42"></circle>
+        <circle class="phase-ring-fg" id="phaseRingFg" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="263.9"></circle>
+      </svg>
+      <div class="phase-ring-center">
+        <b id="phaseRingNum">0/4</b>
+        <span id="phaseRingLabel">workouts</span>
+      </div>
+    </div>
+    <div class="phase-info">
+      <p class="headline" id="phaseHeadline">Phase 1 · Adaptation</p>
+      <p class="sub" id="phaseSub">Easy · 2 sets · RIR 3–4</p>
+    </div>
+  </div>
+  <div class="phase-dots" id="phaseDots"></div>
+  <div class="streak-row">
+    <div class="streak-chip"><b id="streakNum">0</b><span>Week streak</span></div>
+    <div class="streak-chip"><b id="totalWorkoutsNum">0</b><span>Total workouts</span></div>
+    <div class="streak-chip"><b id="prCountNum">0</b><span>Personal records</span></div>
+  </div>
+</div>
+
+<div class="card panel" id="readinessPanel">
+  <div class="readiness-title"><h3>How do you feel today?</h3><span>Optional · 10 seconds</span></div>
+
+  <div class="segmented-group">
+    <span class="segmented-label">Energy</span>
+    <div class="segmented" data-field="rEnergy" data-value="4">
+      <button type="button" class="seg-btn" data-val="1">1</button><button type="button" class="seg-btn" data-val="2">2</button>
+      <button type="button" class="seg-btn" data-val="3">3</button><button type="button" class="seg-btn active" data-val="4">4</button>
+      <button type="button" class="seg-btn" data-val="5">5</button>
+    </div>
+  </div>
+  <div class="segmented-group">
+    <span class="segmented-label">Soreness</span>
+    <div class="segmented" data-field="rSoreness" data-value="2">
+      <button type="button" class="seg-btn" data-val="1">1</button><button type="button" class="seg-btn active" data-val="2">2</button>
+      <button type="button" class="seg-btn" data-val="3">3</button><button type="button" class="seg-btn" data-val="4">4</button>
+      <button type="button" class="seg-btn" data-val="5">5</button>
+    </div>
+  </div>
+  <div class="segmented-group">
+    <span class="segmented-label">Sleep quality</span>
+    <div class="segmented" data-field="rSleep" data-value="4">
+      <button type="button" class="seg-btn" data-val="1">1</button><button type="button" class="seg-btn" data-val="2">2</button>
+      <button type="button" class="seg-btn" data-val="3">3</button><button type="button" class="seg-btn active" data-val="4">4</button>
+      <button type="button" class="seg-btn" data-val="5">5</button>
+    </div>
+  </div>
+  <div class="segmented-group">
+    <span class="segmented-label">Motivation</span>
+    <div class="segmented" data-field="rMotivation" data-value="4">
+      <button type="button" class="seg-btn" data-val="1">1</button><button type="button" class="seg-btn" data-val="2">2</button>
+      <button type="button" class="seg-btn" data-val="3">3</button><button type="button" class="seg-btn active" data-val="4">4</button>
+      <button type="button" class="seg-btn" data-val="5">5</button>
+    </div>
+  </div>
+
+  <div id="recommendOut"></div>
+</div>
 </section>
 
 <section class="section" id="today">
-<div class="section-title"><div><h2>Today’s training</h2><p>Select the week and workout. Your logs save on this device.</p></div></div>
-<div class="glass panel">
-<div class="week-grid" id="weekGrid"></div>
-<div class="mode-banner easy" id="modeBanner"><h3>Easy week</h3><p>2 sets, controlled repetitions, 3–4 RIR. Finish fresher than you started.</p></div>
+<div class="section-title"><div><h2>Today's training</h2><p>Pick your workout, duration, and swap any exercise you like.</p></div></div>
+<div class="card panel">
+  <div class="next-workout">
+    <div><div class="eyebrow" id="phaseLabel">Phase 1 · Adaptation</div><h3 id="nextWorkoutName">Upper A</h3><p id="nextWorkoutHint">Chest & back emphasis</p></div>
+    <div class="progress-ring" id="ringToday"><span id="ringPct">0%</span></div>
+  </div>
+  <div class="workout-picker" id="workoutPicker"></div>
+  <div class="mode-tabs" id="modeTabs"></div>
 </div>
-<div class="day-tabs" id="dayTabs"></div>
-<div class="glass panel" id="workoutPanel"></div>
-<div class="glass panel timer">
-<div><div class="eyebrow">Rest timer</div><div class="timer-display" id="timerDisplay">01:30</div></div>
-<div><div class="quick"><button onclick="setTimer(60)">1:00</button><button onclick="setTimer(90)">1:30</button><button onclick="setTimer(120)">2:00</button><button onclick="setTimer(180)">3:00</button></div><div class="actions"><button class="primary" id="timerToggle" onclick="toggleTimer()">Start</button><button class="secondary" onclick="resetTimer()">Reset</button></div></div>
+<div class="card panel" id="workoutPanel"></div>
+<div class="card panel timer">
+  <div><div class="eyebrow">Rest timer</div><div class="timer-display" id="timerDisplay">01:30</div></div>
+  <div>
+    <div class="quick"><button type="button" data-secs="45">0:45</button><button type="button" data-secs="60">1:00</button><button type="button" data-secs="90">1:30</button><button type="button" data-secs="120">2:00</button><button type="button" data-secs="180">3:00</button></div>
+    <div class="actions"><button type="button" class="primary" id="timerToggle">Start</button><button type="button" class="secondary" id="timerReset">Reset</button></div>
+  </div>
 </div>
 </section>
 
-<section class="section" id="install"><div class="section-title"><div><h2>Install on iPhone</h2><p>Do this once after opening the GitHub Pages link in Safari.</p></div></div><div class="glass panel mini"><ol><li>Tap Safari's <b>Share</b> button.</li><li>Select <b>Add to Home Screen</b>.</li><li>Keep the name <b>Recomp 8</b> and tap <b>Add</b>.</li><li>Launch future sessions from the Home Screen icon.</li></ol><p>Use <b>Export data</b> periodically as a backup.</p></div></section>
 <section class="section" id="plan">
-<div class="section-title"><div><h2>Plan at a glance</h2><p>Easy enough to follow, structured enough to work.</p></div></div>
+<div class="section-title"><div><h2>How the plan flows</h2><p>Four required workouts rotate freely; phases advance as you complete them.</p></div></div>
 <div class="grid2">
-<div class="glass panel mini"><h3>Weekly schedule</h3><p><b>Monday:</b> Upper A, chest and back<br><b>Tuesday:</b> Lower A<br><b>Wednesday:</b> walk or recovery<br><b>Thursday:</b> Upper B, shoulders and arms<br><b>Friday:</b> recovery<br><b>Saturday:</b> Lower B plus accessories<br><b>Sunday:</b> walk or complete rest</p></div>
-<div class="glass panel mini"><h3>Alternating periodization</h3><p><span class="pill">W1 Easy</span><span class="pill">W2 Heavy</span><span class="pill">W3 Easy</span><span class="pill">W4 Heavy</span><span class="pill">W5 Easy</span><span class="pill">W6 Heavy</span><span class="pill">W7 Easy</span><span class="pill">W8 Heavy</span></p><p>Heavy means productive and controlled, never maximal. Easy weeks reduce joint and systemic fatigue while preserving the movement habit.</p></div>
-<div class="glass panel mini"><h3>Easy-week prescription</h3><ul><li>Main movements: 2 × 10–15</li><li>Isolation: 2 × 12–20</li><li>Keep 3–4 repetitions in reserve</li><li>Use about 10–15% less load</li><li>Rest 60–90 seconds</li><li>Target 50–65 minutes</li></ul></div>
-<div class="glass panel mini"><h3>Heavy-week prescription</h3><ul><li>Main movements: 3 × 6–10</li><li>Secondary: 3 × 8–12</li><li>Isolation: 2–3 × 10–15</li><li>Keep 1–2 repetitions in reserve</li><li>Rest 2–3 minutes for main lifts</li><li>Target 65–80 minutes</li></ul></div>
+<div class="card panel mini">
+<h3>Flexible rotation</h3>
+<p>Instead of fixed weekdays, train in this order whenever it suits your week:</p>
+<p><span class="pill active">1. Upper A</span><span class="pill active">2. Lower A</span><span class="pill active">3. Upper B</span><span class="pill active">4. Lower B</span></p>
+<p>Completing all four advances your training phase automatically. Skipping a day simply continues from the same point later.</p>
+</div>
+<div class="card panel mini">
+<h3>Four-phase cycle</h3>
+<p><span class="pill">Phase 1 Adaptation</span><span class="pill">Phase 2 Progression</span><span class="pill">Phase 3 Productive</span><span class="pill">Phase 4 Recovery</span></p>
+<p>Three progressive phases are followed by one easier phase, then the cycle repeats — always tied to completed workouts, never the calendar.</p>
+</div>
+<div class="card panel mini">
+<h3>Duration modes</h3>
+<ul><li><b>Express (40–50 min):</b> essential exercises only</li><li><b>Standard (60–75 min):</b> essential + recommended</li><li><b>Complete (75–90 min):</b> full session including optional work</li></ul>
+</div>
+<div class="card panel mini">
+<h3>Exercise swaps</h3>
+<p>Every exercise has approved machine-based alternatives — pick whichever equipment is free or feels best that day. Free-weight squats and deadlifts are intentionally excluded in favor of machine variations.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="records">
+<div class="section-title"><div><h2>Personal records</h2><p>Automatically flagged when you log a new best.</p></div></div>
+<div class="card panel">
+  <div id="prList"><p style="color:var(--sub);font-size:.85rem">Log a load and rep count on any exercise to start tracking records.</p></div>
+</div>
+<div class="card panel mini">
+<h3>Phase history</h3>
+<div id="phaseHistoryList"><p style="color:var(--sub);font-size:.85rem">No phases completed yet.</p></div>
 </div>
 </section>
 
 <section class="section" id="guidance">
-<div class="section-title"><div><h2>Execution guide</h2><p>The rules that make the program safe and repeatable.</p></div></div>
+<div class="section-title"><div><h2>Execution guide</h2><p>Simple rules that keep the plan safe and effective.</p></div></div>
 <div class="grid2">
-<div class="glass panel mini"><h3>Warm-up</h3><ol><li>5 minutes easy treadmill, bike or elliptical.</li><li>Upper day: 10 controlled arm circles each way.</li><li>Lower day: 10 box squats or very light leg extensions.</li><li>First exercise: light × 12–15, moderate × 8, then on heavy weeks 70–75% × 3–5.</li></ol><p>Warm-up sets do not count and must not create fatigue.</p></div>
-<div class="glass panel mini"><h3>Double progression</h3><p>Keep the same load until every working set reaches the top of its range with clean form and the assigned RIR. Then increase:</p><ul><li>Upper compound machines: 2.5–5%</li><li>Lower machines: 5–10%, machine dependent</li><li>Isolation: smallest available increment</li></ul><p>Never test a one-repetition maximum during this block.</p></div>
-<div class="glass panel mini"><h3>RIR made simple</h3><ul><li><b>4 RIR:</b> approximately 4 clean reps remained</li><li><b>2 RIR:</b> approximately 2 remained</li><li><b>1 RIR:</b> approximately 1 remained</li><li><b>0 RIR:</b> muscular failure</li></ul><p>Avoid 0 RIR on presses, rows, pulldowns and leg exercises. It may be used occasionally on the last arm-isolation set in a heavy week.</p></div>
-<div class="glass panel mini warning"><h3>Pain and readiness</h3><p>Muscular effort and burning are normal. Sharp, radiating or worsening joint pain is not. Stop and replace the movement.</p><p>Remove one set from every exercise if two nights of poor sleep, persistent soreness, unusual depletion, or two consecutive performance declines occur.</p></div>
-</div>
-</section>
-
-<section class="section" id="recovery">
-<div class="section-title"><div><h2>Cardio, nutrition & recovery</h2><p>Enough structure to support the cut without obsessive tracking.</p></div></div>
-<div class="grid2">
-<div class="glass panel mini"><h3>Walking and cardio</h3><ul><li>Average at least 7,000–8,000 steps daily.</li><li>Progress toward 8,000–10,000 if recovery stays good.</li><li>Two moderate sessions of 20–30 minutes weekly.</li><li>Suggested: Wednesday and Sunday.</li><li>Use a pace where short sentences remain possible.</li></ul></div>
-<div class="glass panel mini"><h3>Protein and meals</h3><ul><li>Daily protein target: 150–175 g.</li><li>Distribute across 3 meals plus an optional snack or shake.</li><li>Place useful carbohydrates 1–3 hours before and after training.</li><li>Measure oils, nuts, cheese and spreads because portions escalate quickly.</li></ul><p>Simple plate: half vegetables, one quarter to one third lean protein, one quarter carbohydrates, moderate added fat.</p></div>
-<div class="glass panel mini"><h3>Progress target</h3><ul><li>Aim for approximately 0.4–0.7 kg weekly loss.</li><li>Judge progress by weekly average weight, waist, photos and gym performance.</li><li>If stalled for 2 full weeks, change only one variable.</li><li>If losing over 0.8–0.9 kg weekly with weaker training or poor recovery, slightly increase food around workouts.</li></ul></div>
-<div class="glass panel mini"><h3>Five non-negotiables</h3><div class="rules"><div class="rule">Easy weeks remain easy.</div><div class="rule">Heavy means controlled, not maximal.</div><div class="rule">Progress only at the top of the rep range.</div><div class="rule">Technique wins over an extra repetition.</div><div class="rule">Do not add random exercises.</div></div></div>
+<div class="card panel mini"><h3>RIR made simple</h3><ul><li><b>4 RIR:</b> ~4 clean reps remained</li><li><b>2 RIR:</b> ~2 remained</li><li><b>1 RIR:</b> ~1 remained</li><li><b>0 RIR:</b> failure — avoided by default</li></ul></div>
+<div class="card panel mini"><h3>Progression</h3><p>Keep the same load until every set reaches the top of its range at the assigned RIR, then increase by the smallest available increment.</p></div>
+<div class="card panel mini warning"><h3>Low readiness days</h3><p>Use the Easy recommendation, reduce load ~10–15%, or switch to Express mode. A short walk is a fine substitute if energy is very low.</p></div>
+<div class="card panel mini warning"><h3>When to seek care</h3><p>Sharp, radiating, or worsening joint pain, dizziness, chest discomfort, or symptoms that persist should be assessed by a healthcare professional.</p></div>
 </div>
 </section>
 
 <section class="section" id="progress">
-<div class="section-title"><div><h2>Progress check-in</h2><p>Log once weekly under comparable morning conditions.</p></div></div>
-<div class="glass panel">
+<div class="section-title"><div><h2>Weekly check-in</h2><p>Track trends, not single days.</p></div></div>
+<div class="card panel">
 <div class="form-grid">
 <div class="field"><label>Date</label><input type="date" id="pDate"></div>
-<div class="field"><label>Weight (kg)</label><input type="number" step="0.1" id="pWeight" placeholder="87.0"></div>
+<div class="field"><label>Weight (kg)</label><input type="number" step="0.1" id="pWeight" placeholder="84.0"></div>
 <div class="field"><label>Waist (cm)</label><input type="number" step="0.1" id="pWaist" placeholder="Optional"></div>
-<div class="field"><label>Average steps</label><input type="number" id="pSteps" placeholder="8000"></div>
-<div class="field"><label>Sleep (hours)</label><input type="number" step="0.1" id="pSleep" placeholder="8.5"></div>
-<div class="field"><label>Energy (1–5)</label><select id="pEnergy"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
-<div class="field"><label>Hunger (1–5)</label><select id="pHunger"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
-<div class="field"><label>Training quality (1–5)</label><select id="pTraining"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
-<div class="field span4"><label>Notes</label><textarea id="pNotes" placeholder="Strength, soreness, motivation, diet adherence..."></textarea></div>
+<div class="field"><label>Steps avg</label><input type="number" id="pSteps" placeholder="8000"></div>
+<div class="field"><label>Sleep (h)</label><input type="number" step="0.1" id="pSleep" placeholder="8.0"></div>
+<div class="field"><label>Energy (1–5)</label><select id="pEnergy"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option></select></div>
+<div class="field"><label>Training quality (1–5)</label><select id="pTraining"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option></select></div>
+<div class="field span4"><label>Notes</label><textarea id="pNotes" placeholder="Strength, soreness, mood, anything worth remembering..."></textarea></div>
 </div>
-<div class="actions"><button class="primary" onclick="saveCheckin()">Save check-in</button><button class="secondary" onclick="exportData()">Export data</button><button class="danger" onclick="clearData()">Reset all</button></div>
+<div class="actions"><button type="button" class="primary" id="btnSaveCheckin">Save check-in</button><button type="button" class="secondary" id="btnExport">Export backup</button><button type="button" class="danger" id="btnClearData">Reset all</button></div>
 <div class="status" id="saveStatus"></div>
 <div id="history"></div>
 </div>
+<div class="card panel">
+<h3 style="margin:0 0 6px">Restore from backup</h3>
+<p style="margin:0 0 10px;color:var(--sub);font-size:.85rem">Use this after reinstalling the app or switching phones.</p>
+<div class="filepick"><input type="file" id="restoreFile" accept="application/json"></div>
+</div>
 </section>
 
-<div class="glass panel mini warning"><h3>Safety note</h3><p>This program is general fitness guidance, not medical treatment. Stop training and obtain qualified medical assessment for chest pain, dizziness, unusual shortness of breath, sharp pain, neurological symptoms, or symptoms that persist or worsen.</p></div>
-<footer class="footer">Recomp 8 · Built for consistency · Data remains in this browser unless exported or manually cleared.</footer>
+<div class="card panel mini warning"><h3>Safety note</h3><p>This is general fitness guidance, not medical treatment. Stop training and seek qualified medical assessment for chest pain, dizziness, unusual shortness of breath, sharp pain, or symptoms that persist or worsen.</p></div>
+<footer class="footer">Forge · Built for consistency · Your data stays on this device unless exported.</footer>
 </div>
-<nav class="bottom-nav" aria-label="Main navigation"><a href="#today"><span>●</span>Train</a><a href="#plan"><span>▦</span>Plan</a><a href="#guidance"><span>◇</span>Guide</a><a href="#recovery"><span>♡</span>Recover</a><a href="#progress"><span>↗</span>Progress</a></nav>
-<script>
-const workouts={
-"Upper A":[
-["Machine chest press","Shoulder blades gently against the pad; do not overextend.","main"],["Seated cable or chest-supported row","Pull toward lower chest or upper abdomen without swinging.","main"],["Incline chest press machine","Use a moderate incline.","secondary"],["Neutral-grip lat pulldown","Drive elbows down; avoid excessive backward lean.","secondary"],["Machine or cable lateral raise","Control the load and stop around shoulder height.","isolation3"],["Cable triceps pressdown","Keep upper arms stable.","isolation2"],["Machine preacher or cable curl","Use full comfortable range without shoulder swing.","isolation2"]],
-"Lower A":[
-["Leg press","Lower only while the pelvis remains against the pad.","lower"],["Seated leg curl","Control both directions.","secondary"],["Leg extension","Avoid aggressive knee lockout.","isolation3"],["Hip thrust or glute-drive machine","Finish with glutes, not lower-back extension.","secondary"],["Calf-raise machine","Pause in stretch and contraction.","calf"],["Cable crunch or abdominal machine","Move through the trunk, not only the arms.","abs"]],
-"Upper B":[
-["Neutral-grip shoulder-press machine","Stop if the joint, rather than muscle, is uncomfortable.","main"],["Seated cable or machine row","Use a different grip from Upper A.","secondary"],["Pec-deck or cable chest fly","Keep a soft elbow and avoid forced stretch.","secondary"],["Lat pulldown","Smooth pull and controlled return.","secondary"],["Reverse pec-deck","Lead with elbows; avoid shrugging.","rear"],["Machine or cable lateral raise","Keep torso still.","isolation3"],["Preacher or machine biceps curl","Control the lengthened position.","arm3"],["Assisted triceps dip machine","Keep shoulders down and use comfortable depth.","arm3"]],
-"Lower B + Accessories":[
-["Hack squat or horizontal leg press","Choose the machine that feels most natural.","lower"],["Lying leg curl","Keep hips against the pad.","secondary"],["Glute-drive or hip-abduction machine","Controlled range, no bouncing.","isolation3"],["Leg extension","Smooth repetitions and comfortable knee range.","isolation2"],["Calf-raise machine","Pause at both ends.","calf"],["Cable lateral raise","Stop around shoulder height.","isolation2"],["Cable biceps curl","Keep elbows stable.","isolation2"],["Overhead cable triceps extension","Use pain-free shoulder position.","isolation2"]]
-};
-const days=["Upper A","Lower A","Upper B","Lower B + Accessories"];
-let selectedWeek=Number(localStorage.getItem('selectedWeek')||1), selectedDay=localStorage.getItem('selectedDay')||days[0];
-function isEasy(){return selectedWeek%2===1}
-function rx(type){const easy=isEasy(); if(easy){if(["isolation3","isolation2","rear","arm3","calf","abs"].includes(type))return "2 × 12–20";return "2 × 10–15"} const map={main:"3 × 6–10",lower:"3 × 8–12",secondary:"3 × 8–12",isolation3:"3 × 10–15",rear:"3 × 12–15",arm3:"3 × 8–12",isolation2:"2 × 10–15",calf:"3 × 8–15",abs:"3 × 10–15"};return map[type]}
-function storeKey(i,suffix){return `w${selectedWeek}-${selectedDay}-${i}-${suffix}`}
-function renderWeeks(){const g=document.getElementById('weekGrid');g.innerHTML='';for(let w=1;w<=8;w++){let b=document.createElement('button');b.className='week-btn'+(w===selectedWeek?' active':'');b.innerHTML=`W${w}<small>${w%2?'Easy':'Heavy'}</small>`;b.onclick=()=>{selectedWeek=w;localStorage.setItem('selectedWeek',w);renderAll()};g.appendChild(b)}const m=document.getElementById('modeBanner');m.className='mode-banner '+(isEasy()?'easy':'');m.innerHTML=isEasy()?'<h3>Easy week</h3><p>2 sets, controlled repetitions, 3–4 RIR, approximately 10–15% lighter. Recover while preserving momentum.</p>':'<h3>Heavy week</h3><p>Productive, controlled work at 1–2 RIR. Heavy does not mean maximal and technique remains the priority.</p>'}
-function renderDays(){const d=document.getElementById('dayTabs');d.innerHTML='';days.forEach(x=>{let b=document.createElement('button');b.className='day-tab'+(x===selectedDay?' active':'');b.textContent=x;b.onclick=()=>{selectedDay=x;localStorage.setItem('selectedDay',x);renderAll()};d.appendChild(b)})}
-function renderWorkout(){const p=document.getElementById('workoutPanel'),list=workouts[selectedDay];let done=list.filter((_,i)=>localStorage.getItem(storeKey(i,'done'))==='1').length;let pct=Math.round(done/list.length*100);let h=`<div class="workout-head"><div><h3>${selectedDay}</h3><p>${isEasy()?'Easy: 3–4 RIR, 60–90 sec rest':'Heavy: 1–2 RIR, 2–3 min main / 60–90 sec isolation'}</p></div><div class="progress-ring" style="background:conic-gradient(var(--green) ${pct*3.6}deg,#e5e5ea 0)"><span>${pct}%</span></div></div>`;list.forEach((e,i)=>{let ck=localStorage.getItem(storeKey(i,'done'))==='1',load=localStorage.getItem(storeKey(i,'load'))||'',reps=localStorage.getItem(storeKey(i,'reps'))||'',rir=localStorage.getItem(storeKey(i,'rir'))||'';h+=`<div class="exercise"><div class="ex-top"><input aria-label="Complete ${e[0]}" class="check" type="checkbox" ${ck?'checked':''} onchange="saveExercise(${i},'done',this.checked?'1':'0')"><div><div class="ex-name">${i+1}. ${e[0]}</div><div class="ex-note">${e[1]}</div></div><div class="prescription">${rx(e[2])}</div></div><div class="log-row"><label>Load<input inputmode="decimal" placeholder="kg" value="${load}" oninput="saveExercise(${i},'load',this.value)"></label><label>Reps<input inputmode="numeric" placeholder="e.g. 10/9/8" value="${reps}" oninput="saveExercise(${i},'reps',this.value)"></label><label>RIR<input inputmode="numeric" placeholder="${isEasy()?'3–4':'1–2'}" value="${rir}" oninput="saveExercise(${i},'rir',this.value)"></label></div></div>`});h+=`<div class="actions"><button class="primary" onclick="completeWorkout()">Complete workout</button><button class="secondary" onclick="uncheckWorkout()">Clear checks</button></div>`;p.innerHTML=h}
-function saveExercise(i,k,v){localStorage.setItem(storeKey(i,k),v);if(k==='done')renderWorkout()}
-function completeWorkout(){workouts[selectedDay].forEach((_,i)=>localStorage.setItem(storeKey(i,'done'),'1'));renderWorkout();document.getElementById('saveStatus').textContent='Workout completed and stored on this device.'}
-function uncheckWorkout(){workouts[selectedDay].forEach((_,i)=>localStorage.removeItem(storeKey(i,'done')));renderWorkout()}
-function renderAll(){renderWeeks();renderDays();renderWorkout()}
-let timerSeconds=90,timerLeft=90,timerId=null,timerEnd=0;
-function formatTime(s){return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(Math.max(0,s%60)).padStart(2,'0')}`}
-function setTimer(s){clearInterval(timerId);timerId=null;timerSeconds=s;timerLeft=s;timerEnd=0;var b=document.getElementById('timerToggle');if(b)b.textContent='Start';updateTimer()}
-function updateTimer(){var d=document.getElementById('timerDisplay');if(d)d.textContent=formatTime(timerLeft)}
-function timerTick(){timerLeft=Math.max(0,Math.ceil((timerEnd-Date.now())/1000));updateTimer();if(timerLeft<=0){clearInterval(timerId);timerId=null;timerEnd=0;var b=document.getElementById('timerToggle');if(b)b.textContent='Restart';try{if(navigator.vibrate)navigator.vibrate([150,100,150])}catch(e){}}}
-function toggleTimer(){var b=document.getElementById('timerToggle');if(timerId){clearInterval(timerId);timerId=null;timerLeft=Math.max(0,Math.ceil((timerEnd-Date.now())/1000));timerEnd=0;b.textContent='Resume';updateTimer()}else{if(timerLeft<=0)timerLeft=timerSeconds;timerEnd=Date.now()+timerLeft*1000;timerId=setInterval(timerTick,250);b.textContent='Pause';timerTick()}}
-function resetTimer(){setTimer(timerSeconds)}
-document.addEventListener('visibilitychange',function(){if(!document.hidden&&timerId)timerTick()});
-function saveCheckin(){let arr=JSON.parse(localStorage.getItem('checkins')||'[]');arr.push({date:document.getElementById('pDate').value,weight:document.getElementById('pWeight').value,waist:document.getElementById('pWaist').value,steps:document.getElementById('pSteps').value,sleep:document.getElementById('pSleep').value,energy:document.getElementById('pEnergy').value,hunger:document.getElementById('pHunger').value,training:document.getElementById('pTraining').value,notes:document.getElementById('pNotes').value});localStorage.setItem('checkins',JSON.stringify(arr));document.getElementById('saveStatus').textContent='Check-in saved locally.';renderHistory()}
-function renderHistory(){const arr=JSON.parse(localStorage.getItem('checkins')||'[]'),el=document.getElementById('history');if(!arr.length){el.innerHTML='';return}el.innerHTML='<h3 style="margin-top:22px">Recent check-ins</h3>'+arr.slice(-5).reverse().map(x=>`<div class="exercise"><b>${x.date||'Undated'} · ${x.weight||'–'} kg</b><div class="ex-note">Waist ${x.waist||'–'} cm · Steps ${x.steps||'–'} · Sleep ${x.sleep||'–'} h · Energy ${x.energy}/5 · Hunger ${x.hunger}/5 · Training ${x.training}/5${x.notes?'<br>'+x.notes:''}</div></div>`).join('')}
-function exportData(){const data={exported:new Date().toISOString(),checkins:JSON.parse(localStorage.getItem('checkins')||'[]'),storage:{...localStorage}};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='recomp8-data.json';a.click();URL.revokeObjectURL(a.href)}
-function clearData(){if(confirm('Delete all workout logs and check-ins stored in this browser?')){localStorage.clear();selectedWeek=1;selectedDay=days[0];renderAll();renderHistory();document.getElementById('saveStatus').textContent='All local data was cleared.'}}
-document.getElementById('pDate').valueAsDate=new Date();renderAll();renderHistory();updateTimer();
 
-function registerOfflineApp(){if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){navigator.serviceWorker.register('./service-worker.js').then(function(){var s=document.getElementById('saveStatus');if(s&&!s.textContent)s.textContent='Offline mode is ready.'}).catch(function(e){console.warn('Offline registration unavailable',e)})}}
-window.addEventListener('load',registerOfflineApp);
+<div id="errBanner" style="display:none;position:fixed;top:10px;left:10px;right:10px;z-index:50;background:var(--redBg);border:1px solid #f0b3bd;color:#8a1f16;padding:12px 14px;border-radius:12px;font-size:.85rem;box-shadow:0 6px 20px rgba(0,0,0,.12)"></div>
 
-</script>
+<nav class="bottom-nav" aria-label="Main navigation">
+<a href="#phase"><span>◐</span>Phase</a>
+<a href="#today"><span>●</span>Train</a>
+<a href="#plan"><span>▦</span>Plan</a>
+<a href="#records"><span>★</span>Records</a>
+<a href="#progress"><span>↗</span>Progress</a>
+</nav>
+
+<script src="app.js"></script>
 </body>
 </html>
