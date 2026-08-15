@@ -1,7 +1,7 @@
 {
   "name": "Forge Training Companion",
   "short_name": "Forge",
-  "description": "A flexible, phase-tracked body recomposition training companion.",
+  "description": "A permanent, flexible body recomposition training operating system.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

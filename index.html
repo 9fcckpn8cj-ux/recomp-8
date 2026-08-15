@@ -9,7 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
-<meta name="description" content="A flexible 8-week body recomposition training companion.">
+<meta name="description" content="A permanent, flexible body recomposition training operating system.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Forge | Training Companion</title>
@@ -152,6 +152,19 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 .bottom-nav a span{display:block;font-size:1.1rem}
 .bottom-nav a:hover{background:var(--accentSoft);color:var(--accent)}
 .filepick{border:1px dashed #b9c4e0;border-radius:12px;padding:12px;text-align:center;color:var(--sub);font-size:.85rem;background:#ffffff}
+
+/* Rolls-Royce permanent edition */
+.decision-card{border-left:4px solid var(--accent)}
+.decision-head{display:flex;justify-content:space-between;gap:16px;align-items:center}.decision-head h3{margin:4px 0 2px;font-size:1.35rem}.decision-head p{margin:0;color:var(--sub);font-size:.84rem}
+.status-orb{width:70px;height:70px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none}.status-orb.good{background:var(--greenBg);color:var(--green)}.status-orb.moderate{background:var(--amberBg);color:var(--amber)}.status-orb.high{background:var(--redBg);color:var(--red)}.status-orb span{font-weight:800}.status-orb small{font-size:.66rem}
+.intensity-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;background:#eef0f2;padding:5px;border-radius:13px}.intensity-switch button{border:0;background:transparent;padding:12px;border-radius:9px;font-weight:800;color:var(--sub)}.intensity-switch button.active{background:var(--accent);color:#fff;box-shadow:0 3px 10px rgba(29,78,216,.2)}
+.microcopy{font-size:.76rem;color:var(--sub);margin:9px 0 0}.analytics-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.analytics-strip div{text-align:center;border-right:1px solid var(--line)}.analytics-strip div:last-child{border:0}.analytics-strip b{display:block;color:var(--accent);font-size:1.05rem}.analytics-strip span,.smart-summary span{font-size:.7rem;color:var(--sub)}
+.smart-summary{display:flex;justify-content:space-between;gap:16px}.smart-summary b{display:block}.backup-reminder{font-size:.75rem;color:var(--amber);align-self:center}.session-calendar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.session-mark{width:28px;height:28px;border-radius:7px;display:grid;place-items:center;font-size:.7rem;font-weight:800}.session-mark.heavy{background:var(--accent);color:#fff}.session-mark.easy{background:var(--accentSoft);color:var(--accent)}
+.signal{padding:8px 0;border-top:1px solid var(--line);font-size:.84rem}.signal:first-child{border:0}.signal.warn{color:var(--amber)}.signal.good{color:var(--green)}
+.volume-row{display:grid;grid-template-columns:90px 1fr 34px;gap:8px;align-items:center;font-size:.77rem;margin:8px 0}.volume-track{height:7px;background:#e9ebee;border-radius:99px;overflow:hidden}.volume-fill{height:100%;background:var(--accent)}
+.exercise-guide{margin:9px 0 0 42px}.guide-toggle{border:0;background:transparent;color:var(--accent);font-size:.76rem;font-weight:750;padding:4px 0}.guide-body{display:none;background:#f5f6f7;border-radius:9px;padding:10px;margin-top:5px;font-size:.78rem;color:var(--sub)}.guide-body.open{display:block}.previous-line{font-size:.75rem;color:var(--sub);margin:7px 0 0 42px}.suggest-line{font-size:.75rem;color:var(--accent);font-weight:750;margin:3px 0 0 42px}
+@media(max-width:700px){.analytics-strip{grid-template-columns:1fr 1fr}.analytics-strip div:nth-child(2){border-right:0}.decision-head{align-items:flex-start}.smart-summary{flex-direction:column}.exercise-guide,.previous-line,.suggest-line{margin-left:0}}
+
 @media(max-width:700px){
   .summary{grid-template-columns:1fr 1fr}
   .grid2{grid-template-columns:1fr}
@@ -171,7 +184,7 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 <div class="wrap">
 
 <header class="hero" id="home">
-<div class="eyebrow">8-week body recomposition</div>
+<div class="eyebrow">Permanent training operating system</div>
 <h1>Train hard.<br>Track everything.</h1>
 <p>A flexible, machine-based training companion built for consistent progress — with a phase tracker, personal records, and a streak count that keeps you honest.</p>
 </header>
@@ -179,12 +192,12 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 <section class="summary card" aria-label="Profile summary">
 <div class="metric"><b>4×</b><span>Training weekly</span></div>
 <div class="metric"><b>Recomp</b><span>Fat loss + strength</span></div>
-<div class="metric"><b>8 weeks</b><span>Flexible phases</span></div>
+<div class="metric"><b>∞</b><span>Repeating blocks</span></div>
 <div class="metric"><b id="summaryStreak">0</b><span>Week streak</span></div>
 </section>
 
 <section class="section" id="phase">
-<div class="section-title"><div><h2>Phase tracker</h2><p>Advances automatically as you complete workouts — not by calendar.</p></div></div>
+<div class="section-title"><div><h2>Training dashboard</h2><p>Your current block, phase, fatigue and next useful decision.</p></div></div>
 
 <div class="card phase-hero" id="phaseCard">
   <h3>Current phase</h3>
@@ -210,6 +223,22 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
     <div class="streak-chip"><b id="totalWorkoutsNum">0</b><span>Total workouts</span></div>
     <div class="streak-chip"><b id="prCountNum">0</b><span>Personal records</span></div>
   </div>
+</div>
+
+<div class="card panel decision-card">
+  <div class="decision-head"><div><div class="eyebrow">Today's recommendation</div><h3 id="modeRecommendationTitle">Heavy mode</h3><p id="modeRecommendationWhy">Recovery looks good and recent workload is balanced.</p></div><div class="status-orb good" id="fatigueOrb"><span id="fatigueScore">Low</span><small>fatigue</small></div></div>
+  <div class="intensity-switch" id="intensitySwitch" role="group" aria-label="Training intensity">
+    <button type="button" data-intensity="easy">Easy</button>
+    <button type="button" data-intensity="heavy">Heavy</button>
+  </div>
+  <p class="microcopy" id="intensityMicrocopy">You stay in control. The recommendation informs the choice but never blocks it.</p>
+</div>
+
+<div class="card panel analytics-strip">
+  <div><b id="recoveryStatus">Good</b><span>Recovery</span></div>
+  <div><b id="performanceTrend">Stable</b><span>Performance</span></div>
+  <div><b id="heavyEasyBalance">0H · 0E</b><span>Last 8 sessions</span></div>
+  <div><b id="lastBackupLabel">Never</b><span>Last backup</span></div>
 </div>
 
 <div class="card panel" id="readinessPanel">
@@ -262,6 +291,7 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
   <div class="workout-picker" id="workoutPicker"></div>
   <div class="mode-tabs" id="modeTabs"></div>
 </div>
+<div class="card panel smart-summary" id="smartSummary"><div><b id="sessionModeLabel">Heavy session</b><span id="sessionPrescription">Main lifts 3 sets · RIR 1–2</span></div><div><b id="volumeGuardrail">Balanced</b><span>Volume guardrail</span></div></div>
 <div class="card panel" id="workoutPanel"></div>
 <div class="card panel timer">
   <div><div class="eyebrow">Rest timer</div><div class="timer-display" id="timerDisplay">01:30</div></div>
@@ -273,7 +303,7 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 </section>
 
 <section class="section" id="plan">
-<div class="section-title"><div><h2>How the plan flows</h2><p>Four required workouts rotate freely; phases advance as you complete them.</p></div></div>
+<div class="section-title"><div><h2>How the plan flows</h2><p>Four required workouts rotate freely; blocks repeat indefinitely.</p></div></div>
 <div class="grid2">
 <div class="card panel mini">
 <h3>Flexible rotation</h3>
@@ -284,7 +314,7 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 <div class="card panel mini">
 <h3>Four-phase cycle</h3>
 <p><span class="pill">Phase 1 Adaptation</span><span class="pill">Phase 2 Progression</span><span class="pill">Phase 3 Productive</span><span class="pill">Phase 4 Recovery</span></p>
-<p>Three progressive phases are followed by one easier phase, then the cycle repeats — always tied to completed workouts, never the calendar.</p>
+<p>Each permanent block cycles through Adaptation, Progression, Productive and Recovery, then a new block starts automatically. Your history never resets.</p>
 </div>
 <div class="card panel mini">
 <h3>Duration modes</h3>
@@ -305,6 +335,16 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 <div class="card panel mini">
 <h3>Phase history</h3>
 <div id="phaseHistoryList"><p style="color:var(--sub);font-size:.85rem">No phases completed yet.</p></div>
+</div>
+</section>
+
+<section class="section" id="analytics">
+<div class="section-title"><div><h2>Performance intelligence</h2><p>Useful signals without cluttering the daily workout.</p></div></div>
+<div class="grid2">
+  <div class="card panel mini"><h3>Heavy / easy history</h3><div class="session-calendar" id="sessionCalendar"></div><p id="sessionBalanceNote">No sessions logged yet.</p></div>
+  <div class="card panel mini"><h3>Fatigue signals</h3><div id="fatigueSignals"><p>No warning signs detected.</p></div></div>
+  <div class="card panel mini"><h3>Muscle-group volume</h3><div id="volumeByMuscle"><p>Complete a session to calculate volume.</p></div></div>
+  <div class="card panel mini"><h3>Last workout summary</h3><div id="lastWorkoutSummary"><p>No completed workouts yet.</p></div></div>
 </div>
 </section>
 
@@ -331,7 +371,7 @@ button{cursor:pointer;touch-action:manipulation;color:var(--text)}
 <div class="field"><label>Training quality (1–5)</label><select id="pTraining"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option></select></div>
 <div class="field span4"><label>Notes</label><textarea id="pNotes" placeholder="Strength, soreness, mood, anything worth remembering..."></textarea></div>
 </div>
-<div class="actions"><button type="button" class="primary" id="btnSaveCheckin">Save check-in</button><button type="button" class="secondary" id="btnExport">Export backup</button><button type="button" class="danger" id="btnClearData">Reset all</button></div>
+<div class="actions"><button type="button" class="primary" id="btnSaveCheckin">Save check-in</button><button type="button" class="secondary" id="btnExport">Export backup</button><span class="backup-reminder" id="backupReminder"></span><button type="button" class="danger" id="btnClearData">Reset all</button></div>
 <div class="status" id="saveStatus"></div>
 <div id="history"></div>
 </div>
