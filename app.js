@@ -859,10 +859,37 @@ function registerSW() {
     navigator.serviceWorker.register('./service-worker.js').catch(function () {});
   }
 }
+
+/* =========================================================
+   FULL-SCREEN FIT (iOS Home Screen apps size themselves unreliably)
+   ========================================================= */
+var VERSION = 'v3.2';
+function isStandalone() { return navigator.standalone === true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches); }
+function fitApp() {
+  var app = $('#app'), probe = $('#probe'); if (!app || !probe) return;
+  var cs = getComputedStyle(probe), vh = probe.offsetHeight, ih = window.innerHeight, sa = isStandalone();
+  var h = sa ? Math.max(ih, vh) : ih;
+  if (!h || h < 300) return;
+  [document.documentElement, document.body, app].forEach(function (el) { el.style.setProperty('height', h + 'px', 'important'); });
+  var d = $('#diag');
+  if (d) d.textContent = VERSION + ' · ' + (sa ? 'Home Screen app' : 'Safari tab') + ' · view ' + window.innerWidth + '×' + ih + ' · screen ' + screen.width + '×' + screen.height + ' · insets ' + Math.round(parseFloat(cs.paddingTop) || 0) + '/' + Math.round(parseFloat(cs.paddingBottom) || 0);
+  var hint = $('#installHint'); if (hint) hint.classList.toggle('show', !sa && store.get('hintOff') !== '1');
+}
+function bindFit() {
+  fitApp();
+  [60, 250, 800, 1800, 3500].forEach(function (ms) { setTimeout(fitApp, ms); });      // iOS settles late on cold start
+  window.addEventListener('resize', fitApp);
+  window.addEventListener('orientationchange', function () { setTimeout(fitApp, 120); setTimeout(fitApp, 600); });
+  window.addEventListener('pageshow', fitApp);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) { fitApp(); setTimeout(fitApp, 300); } });
+  document.addEventListener('focusout', function () { setTimeout(function () { window.scrollTo(0, 0); fitApp(); }, 60); });   // keyboard closes: reset iOS scroll offset
+  var hc = $('#hintClose'); if (hc) hc.addEventListener('click', function () { store.set('hintOff', '1'); fitApp(); });
+}
+
 function init() {
   buildPresets(); renderRestGuide();
   $('#vol').value = S.settings.volume;
-  bindGlobal(); bindTrain(); bindHistory(); bindMore();
+  bindGlobal(); bindTrain(); bindHistory(); bindMore(); bindFit();
   renderTimer(); go('timer');
   if (!storageOK) toast('Storage is blocked here. Data will not persist.');
 }
