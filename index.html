@@ -3,16 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#e8e9eb">
+<meta name="theme-color" content="#111214">
 <meta name="color-scheme" content="light">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Forge">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="Forge — a permanent, flexible strength and physique training companion.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-startup-image" href="splash-1320x2868.png" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="splash-1206x2622.png" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="splash-1179x2556.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="splash-1260x2736.png" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
 <title>Forge</title>
 <style>
 @property --p{syntax:'<number>';inherits:false;initial-value:0}
@@ -32,10 +38,11 @@ button{cursor:pointer;touch-action:manipulation;border:0;background:none}
 [hidden]{display:none!important}
 
 /* ---------- App shell: tab bar is part of the layout (never floats) ---------- */
-#app{display:flex;flex-direction:column;height:100vh;height:100dvh;background:var(--bg)}
+#app{position:fixed;top:0;right:0;bottom:0;left:0;display:flex;flex-direction:column;background:var(--bg)}
+#statusCap{flex:0 0 auto;height:env(safe-area-inset-top);background:#111214}
 #pages{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;padding:0 16px 28px}
-#tabbar{flex:0 0 auto;position:relative;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
-.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 2px 4px;color:var(--sub);font-size:.66rem;font-weight:700;letter-spacing:.02em;transition:color .25s,transform .15s var(--ease)}
+#tabbar{flex:0 0 auto;position:relative;display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);padding:4px 4px calc(4px + env(safe-area-inset-bottom))}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 2px 3px;color:var(--sub);font-size:.66rem;font-weight:700;letter-spacing:.02em;transition:color .25s,transform .15s var(--ease)}
 .tab svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
 .tab.active{color:var(--ink)}
 .tab.active svg{transform:translateY(-1px) scale(1.08)}
@@ -58,7 +65,7 @@ button{cursor:pointer;touch-action:manipulation;border:0;background:none}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes swapIn{from{opacity:.2;transform:scale(.985)}to{opacity:1;transform:none}}
 
-.ph{padding:calc(20px + env(safe-area-inset-top)) 4px 14px;text-align:left}
+.ph{padding:22px 4px 14px;text-align:left}
 .eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sub)}
 .dark .eyebrow,.hero .eyebrow{color:var(--mist)}
 .ph h1{margin:6px 0 0;font-size:clamp(1.9rem,7vw,2.5rem);line-height:1.05;letter-spacing:-.035em;font-weight:800}
@@ -84,7 +91,7 @@ button{cursor:pointer;touch-action:manipulation;border:0;background:none}
 .btn[disabled]{opacity:.5;pointer-events:none}
 
 /* ---------- Timer page ---------- */
-.ring-wrap{position:relative;width:min(72vw,280px);aspect-ratio:1;margin:6px auto 4px}
+.ring-wrap{position:relative;width:min(70vw,300px,36vh);aspect-ratio:1;margin:6px auto 4px}
 .ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
 .r-bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:8}
 .r-fg{fill:none;stroke:#fff;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset .25s linear}
@@ -114,7 +121,7 @@ button{cursor:pointer;touch-action:manipulation;border:0;background:none}
 input[type=range]{width:100%;accent-color:#111214;height:28px}
 
 /* ---------- Train page ---------- */
-.mini{position:sticky;top:0;z-index:8;display:flex;align-items:center;gap:12px;margin:0 -16px 6px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:#e8e9eb;border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+.mini{position:sticky;top:0;z-index:8;display:flex;align-items:center;gap:12px;margin:0 -16px 6px;padding:10px 16px;background:#e8e9eb;border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
 .mini.stuck{border-color:var(--line);box-shadow:0 8px 18px rgba(17,18,20,.06)}
 .mini-time{font-weight:800;font-size:1.25rem;font-variant-numeric:tabular-nums;letter-spacing:-.02em;min-width:64px}
 .mini-bar{flex:1;height:6px;border-radius:9px;background:var(--track);overflow:hidden}
@@ -129,9 +136,9 @@ input[type=range]{width:100%;accent-color:#111214;height:28px}
 .badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:99px;font-size:.7rem;font-weight:800;letter-spacing:.03em}
 .badge.ok{background:var(--greenBg);color:var(--green)}.badge.mid{background:var(--amberBg);color:var(--amber)}.badge.bad{background:var(--redBg);color:var(--red)}
 .badge.dark{background:var(--blk);color:#fff}.badge.light{background:var(--soft);color:var(--ink)}
-.picker,.modes{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.picker::-webkit-scrollbar,.modes::-webkit-scrollbar{display:none}
-.modes{justify-content:center}
+.picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 0 8px}
+.picker .chip{white-space:normal;text-align:center;padding:10px;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.modes{display:flex;gap:8px;justify-content:center;padding:2px 0 10px}
 .chip{flex:none;white-space:nowrap;padding:11px 16px;border-radius:14px;background:#fff;color:var(--sub);font-weight:750;font-size:.86rem;box-shadow:inset 0 0 0 1px var(--line);transition:all .3s var(--ease)}
 .chip:active{transform:scale(.95)}
 .chip.active{background:var(--blk);color:#fff;box-shadow:0 8px 18px rgba(17,18,20,.25)}
@@ -259,12 +266,15 @@ details.card[open] summary::after{transform:rotate(225deg)}
 .sgrid div{background:var(--soft);border-radius:14px;padding:12px 6px;text-align:center}.sgrid b{display:block;font-size:1.2rem}.sgrid span{font-size:.68rem;color:var(--sub)}
 #toast{position:fixed;left:50%;bottom:calc(82px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--blk);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;font-size:.86rem;opacity:0;pointer-events:none;z-index:100;transition:opacity .3s,transform .4s var(--ease);max-width:88vw;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.3)}
 #toast.on{opacity:1;transform:translate(-50%,0)}
+@media(min-width:430px){.card{padding:20px}.exercise{padding:18px}.t-display{font-size:4.9rem}.btn-xl{min-height:58px}}
+@media(max-height:740px){.ph{padding:12px 4px 8px}.ph h1{font-size:1.55rem}.ring-wrap{width:min(62vw,31vh)}.hero{padding:14px 14px}.adj{margin:2px 0 8px}.presets{margin-bottom:12px}.round.big{width:78px;height:78px}.t-display{font-size:3.2rem}.pchip{padding:7px 0}}
 @media(max-width:380px){.logrow{gap:6px}.btn{padding:12px 16px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
 <div id="app">
+<div id="statusCap" aria-hidden="true"></div>
 <main id="pages">
 
 <!-- ================= TIMER ================= -->
